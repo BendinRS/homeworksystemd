@@ -18,15 +18,15 @@
 
   - name: http | copy files systemd
     template:
-       src: files/"{{ item }}""
-       dest: /etc/systemd/system/"{{ item }}""
+       src: files/{{ item }}
+       dest: /etc/systemd/system/{{ item }}
        with_items:
         - httpd-first
         - httpd-second
   - name: http | copy files nginx
     template:
-       src: files/"{{ item }}""
-       dest: /etc/httpd/conf/"{{ item }}""
+       src: files/{{ item }}
+       dest: /etc/httpd/conf/{{ item }}
        with_items:
         - first.conf
         - second.conf
