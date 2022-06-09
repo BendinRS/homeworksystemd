@@ -5,42 +5,42 @@
       state: present
       name:
         - epel-release
-  - name: http | install nginx
+  - name: http | install httpd
     yum:
       state: present
       name:
-        - nginx
+        - httpd
 
-  # - name: http | copy file http.service
-  #   template:
-  #      src: files/httpd@.service
-  #      dest: /etc/systemd/system/httpd@.service
+  - name: http | copy file http.service
+    template:
+       src: files/httpd@.service
+       dest: /etc/systemd/system/httpd@.service
 
-  # - name: http | copy file httpd-first
-  #   template:
-  #      src: files/httpd-first
-  #      dest: /etc/systemd/system/httpd-first
+  - name: http | copy file httpd-first
+    template:
+       src: files/httpd-first
+       dest: /etc/systemd/system/httpd-first
 
-  # - name: http | copy file httpd-second
-  #   template:
-  #      src: files/httpd-second
-  #      dest: /etc/systemd/system/httpd-second
+  - name: http | copy file httpd-second
+    template:
+       src: files/httpd-second
+       dest: /etc/systemd/system/httpd-second
 
-  # - name: http | copy files first.conf
-  #   template:
-  #      src: files/first.conf
-  #      dest: /etc/httpd/conf/first.conf
+  - name: http | copy files first.conf
+    template:
+       src: files/first.conf
+       dest: /etc/httpd/conf/first.conf
 
-  # - name: http | copy files second.conf
-  #   template:
-  #      src: files/second.conf
-  #      dest: /etc/httpd/conf/second.conf
+  - name: http | copy files second.conf
+    template:
+       src: files/second.conf
+       dest: /etc/httpd/conf/second.conf
 
-  # - name: http | start nginx1
-  #   shell: systemctl start httpd@first.service
+  - name: http | start nginx1
+    shell: systemctl start httpd@first.service
 
-  # - name: http | start nginx2
-  #   shell: systemctl start httpd@second.service
+  - name: http | start nginx2
+    shell: systemctl start httpd@second.service
 
 
   
