@@ -1,2 +1,41 @@
 ---
 # tasks file for http
+  - name: http | install epel-release
+    yum:
+      state: present
+      name:
+        - epel-release
+  - name: http | install nginx
+    yum:
+      state: present
+      name:
+        - nginx
+
+  - name: http | copy file watchlog.timer
+    template:
+       src: files/http1.service
+       dest: /etc/systemd/system/http1.service
+
+  - name: http | copy files systemd
+    template:
+       src: files/"{{ item }}""
+       dest: /etc/systemd/system/"{{ item }}""
+       with_items:
+        - httpd-first
+        - httpd-second
+  - name: http | copy files nginx
+    template:
+       src: files/"{{ item }}""
+       dest: /etc/httpd/conf/"{{ item }}""
+       with_items:
+        - first.conf
+        - second.conf
+  - name: http | start nginx1
+    shell: systemctl start httpd@first.service
+
+  - name: http | start nginx1
+    shell: systemctl start httpd@second.service
+
+
+  
+  
