@@ -19,14 +19,14 @@
   - name: http | copy files systemd
     template:
        src: "files/{{ test }}"
-       dest: "/etc/systemd/system/{{ test }}"
+       dest: /etc/systemd/system/
        test_with_items:
         - httpd-first
         - httpd-second
   - name: http | copy files nginx
     template:
        src: "files/{{ test1 }}"
-       dest: "/etc/httpd/conf/{{ test1 }}"
+       dest: /etc/httpd/conf/
        test1_with_items:
         - first.conf
         - second.conf
