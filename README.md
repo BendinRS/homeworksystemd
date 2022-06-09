@@ -25,4 +25,4 @@ fatal: [systemd]: FAILED! => {"changed": true, "cmd": "systemctl start httpd@fir
 Направил туда - все завелось.
 
 + Роль (http)[roles/http] выполняет задачу
-+ (script3.sh)[script3.sh] запускает процесс
++ (script3.sh)[script3.sh] запускает процесс 
