@@ -1,7 +1,7 @@
 ---
 # tasks file for spawn
   - name: systemd | install epel
-    yum:
+    dnf:
         name: "{{ item }}"
         state: present
     with_items: 
