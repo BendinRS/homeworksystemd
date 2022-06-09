@@ -1,9 +1,9 @@
 ---
 # tasks file for spawn
-  # - name: systemd | install epel
-  #   yum:
-  #       name: "{{ item }}"
-  #       state: present
+  - name: systemd | install epel
+    yum:
+      name: epel-release
+      state: present
   #   with_items: 
   #     - epel-release
   #     - spawn-fcgi 
