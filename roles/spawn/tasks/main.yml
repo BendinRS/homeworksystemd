@@ -1,29 +1,33 @@
 ---
 # tasks file for spawn
-  - name: systemd | install epel
+  # - name: systemd | install epel
+  #   yum:
+  #       name: "{{ item }}"
+  #       state: present
+  #   with_items: 
+  #     - epel-release
+  #     - spawn-fcgi 
+  #     - php
+  #     - php-cli
+  #     - mod_fcgid
+  #     - httpd
+  - name: spawn | install spawn-fcgi
     yum:
-        name: "{{ item }}"
+        name: spawn-fcgi 
         state: present
-    with_items: 
-      - epel-release
-      - spawn-fcgi 
-      - php
-      - php-cli
-      - mod_fcgid
-      - httpd
-  # - name: systemd | install spawn-fcgi
-  #   yum:
-  #       name: spawn-fcgi 
-  #       state: present
-  # - name: systemd | install php
-  #   yum:
-  #       name: php
-  #       state: present
-  # - name: systemd | install php-climod_fcgid
-  #   yum:
-  #       name: php-climod_fcgid
-  #       state: present
-  # - name: systemd | install httpd
-  #   yum:
-  #       name: httpd
-  #       state: present
+  - name: spawn | install php
+    yum:
+        name: php
+        state: present
+  - name: spawn | install php-cli
+    yum:
+        name: php-climod_fcgid
+        state: present
+  - name: spawn | install httpd
+    yum:
+        name: httpd
+        state: present
+  - name: spawn | install mod_fcgid
+    yum:
+        name: mod_fcgid
+        state: present
