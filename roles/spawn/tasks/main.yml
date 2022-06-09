@@ -21,7 +21,7 @@
         state: present
   - name: spawn | install php-cli
     yum:
-        name: php-climod_fcgid
+        name: php-cli
         state: present
   - name: spawn | install httpd
     yum:
