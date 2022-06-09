@@ -15,19 +15,39 @@
     yum:
         name: spawn-fcgi 
         state: present
+
   - name: spawn | install php
     yum:
         name: php
         state: present
+
   - name: spawn | install php-cli
     yum:
         name: php-cli
         state: present
+
   - name: spawn | install httpd
     yum:
         name: httpd
         state: present
+
   - name: spawn | install mod_fcgid
     yum:
         name: mod_fcgid
         state: present
+
+  - name: spawn | copy file spawn-fcgi
+    template:
+       src: files/spawn-fcgi
+       dest: /etc/sysconfig/spawn-fcgi
+
+  - name: spawn | copy file spawn-fcgi
+    template:
+       src: files/spawn-fcgi.service
+       dest: /etc/systemd/system/spawn-fcgi.service
+
+  - name: spawn | start spawn-fcgi.service
+    shell: systemctl start spawn-fcgi.service
+
+  - name: spawn | status spawn-fcgi.service
+    shell: systemctl status spawn-fcgi.service
