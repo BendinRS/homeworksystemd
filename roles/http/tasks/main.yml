@@ -14,7 +14,7 @@
   - name: http | copy file http.service
     template:
        src: files/httpd@.service
-       dest: /etc/systemd/system/httpd@.service
+       dest: /usr/lib/systemd/system/httpd@.service
 
   - name: http | copy file httpd-first
     template:
