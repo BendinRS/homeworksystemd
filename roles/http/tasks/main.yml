@@ -18,8 +18,8 @@
 
   - name: http | copy files systemd
     template:
-       src: files/{{ item }}
-       dest: /etc/systemd/system/{{ item }}
+       src: files/"{{ item }}"
+       dest: /etc/systemd/system/"{{ item }}"
        with_items:
         - httpd-first
         - httpd-second
