@@ -1,12 +1,12 @@
 [Unit]
-Description=The Apache HTTP Server
+Description=The Apache HTTP Server %I
 After=network.target remote-fs.target nss-lookup.target
 Documentation=man:httpd(8)
 Documentation=man:apachectl(8)
 
 [Service]
 Type=notify
-EnvironmentFile=/etc/sysconfig/httpd-%I 
+EnvironmentFile=/etc/systemd/system/httpd-%I
 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND
 ExecReload=/usr/sbin/httpd $OPTIONS -k graceful
 ExecStop=/bin/kill -WINCH ${MAINPID}
