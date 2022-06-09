@@ -29,5 +29,3 @@
   - name: spawn | start spawn-fcgi.service
     shell: systemctl start spawn-fcgi.service
 
-  - name: spawn | status spawn-fcgi.service
-    shell: systemctl status spawn-fcgi.service

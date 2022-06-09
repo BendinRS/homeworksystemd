@@ -1,3 +1,3 @@
 vagrant up
-ansible-playbook systemd/tests/test.yml
+ansible-playbook roles/systemd/tests/test.yml
 vagrant ssh
