@@ -39,7 +39,7 @@
   - name: http | start nginx1
     shell: systemctl start httpd@first.service
 
-  - name: http | start nginx1
+  - name: http | start nginx2
     shell: systemctl start httpd@second.service
 
 
