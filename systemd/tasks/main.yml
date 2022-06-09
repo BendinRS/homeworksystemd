@@ -44,7 +44,7 @@
     tags:
        - watchlog
 
-  - name: systemd | start watchlog.service
-    shell: systemctl start watchlog.service
+  - name: systemd | start watchlog.timer
+    shell: systemctl start watchlog.timer
     tags:
-      - start_service
+      - start_timer
