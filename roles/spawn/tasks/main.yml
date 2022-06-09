@@ -1,0 +1,31 @@
+---
+# tasks file for spawn
+  - name: spawn | install epel-release
+    yum:
+      state: present
+      name:
+        - epel-release
+
+  - name: spawn | install programs
+    yum:
+      state: present
+      name:
+        - spawn-fcgi
+        - php
+        - php-cli
+        - httpd
+        - mod_fcgid
+
+  - name: spawn | copy file spawn-fcgi
+    template:
+       src: files/spawn-fcgi
+       dest: /etc/sysconfig/spawn-fcgi
+
+  - name: spawn | copy file spawn-fcgi
+    template:
+       src: files/spawn-fcgi.service
+       dest: /etc/systemd/system/spawn-fcgi.service
+
+  - name: spawn | start spawn-fcgi.service
+    shell: systemctl start spawn-fcgi.service
+

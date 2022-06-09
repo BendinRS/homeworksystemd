@@ -1,0 +1,54 @@
+---
+# tasks file for systemd
+  - name: systemd | install epel
+    yum:
+        name: epel-release
+        state: present
+    tags:
+        - epel-package
+        - packages
+
+  - name: systemd | copy file watchlog
+    template:
+       src: files/watchlog.j2
+       dest: /etc/sysconfig/watchlog
+    tags:
+        - watchlog
+
+  - name: systemd | copy file watchlog.log
+    template:
+       src: files/watchlog.log.j2
+       dest: /var/log/watchlog.log 
+    tags:
+       - watchlog
+
+  - name: systemd | copy file watchlog.sh
+    template:
+       src: files/watchlog.sh.j2
+       dest: /opt/watchlog.sh
+       mode: a+x
+    tags:
+       - watchlog
+
+  - name: systemd | copy file watchlog.service
+    template:
+       src: files/watchlog.service.j2
+       dest: /etc/systemd/system/watchlog.service 
+    tags:
+       - watchlog
+
+  - name: systemd | copy file watchlog.timer
+    template:
+       src: files/watchlog.timer.j2
+       dest: /etc/systemd/system/watchlog.timer
+    tags:
+       - watchlog
+
+  - name: systemd | start watchlog.timer
+    shell: systemctl start {{ item }}
+    with_items:
+    - watchlog.timer
+    - watchlog.service
+
+    tags:
+      - start_timer

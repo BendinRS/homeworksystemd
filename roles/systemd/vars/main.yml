@@ -1,0 +1,3 @@
+---
+# vars file for systemd
+word_test: "ALERT"
