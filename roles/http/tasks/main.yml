@@ -11,10 +11,10 @@
       name:
         - nginx
 
-  - name: http | copy file watchlog.timer
+  - name: http | copy file http.service
     template:
-       src: files/http1.service
-       dest: /etc/systemd/system/http1.service
+       src: files/http@.service
+       dest: /etc/systemd/system/http@.service
 
   - name: http | copy files systemd
     template:
