@@ -16,20 +16,26 @@
        src: files/httpd@.service
        dest: /etc/systemd/system/httpd@.service
 
-  - name: http | copy files systemd
+  - name: http | copy file httpd-first
     template:
-       src: "files/{{ test }}"
-       dest: /etc/systemd/system/
-       test_with_items:
-        - httpd-first
-        - httpd-second
-  - name: http | copy files nginx
+       src: files/httpd-first
+       dest: /etc/systemd/system/httpd-first
+
+  - name: http | copy file httpd-second
     template:
-       src: "files/{{ test1 }}"
-       dest: /etc/httpd/conf/
-       test1_with_items:
-        - first.conf
-        - second.conf
+       src: files/httpd-second
+       dest: /etc/systemd/system/httpd-second
+
+  - name: http | copy files first.conf
+    template:
+       src: files/first.conf
+       dest: /etc/httpd/conf/first.conf
+
+  - name: http | copy files second.conf
+    template:
+       src: files/second.conf
+       dest: /etc/httpd/conf/second.conf
+
   - name: http | start nginx1
     shell: systemctl start httpd@first.service
 
