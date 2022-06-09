@@ -41,7 +41,10 @@
     template:
        src: files/watchlog.timer.j2
        dest: /etc/systemd/system/watchlog.timer
-    notify:
-       - start watchlog.service
     tags:
        - watchlog
+
+  - name: systemd | start watchlog.service
+    shell: systemctl start watchlog.service
+    tags:
+      - start_service
