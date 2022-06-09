@@ -13,8 +13,8 @@
 
   - name: http | copy file http.service
     template:
-       src: files/http@.service
-       dest: /etc/systemd/system/http@.service
+       src: files/httpd@.service
+       dest: /etc/systemd/system/httpd@.service
 
   - name: http | copy files systemd
     template:
