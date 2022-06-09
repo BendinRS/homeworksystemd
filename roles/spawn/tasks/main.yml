@@ -1,10 +1,15 @@
 ---
 # tasks file for spawn
-  - name: spawn | install programs
+  - name: spawn | install epel-release
     yum:
       state: present
       name:
         - epel-release
+
+  - name: spawn | install programs
+    yum:
+      state: present
+      name:
         - spawn-fcgi
         - php
         - php-cli
