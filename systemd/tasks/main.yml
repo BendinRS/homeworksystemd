@@ -45,6 +45,10 @@
        - watchlog
 
   - name: systemd | start watchlog.timer
-    shell: systemctl start watchlog.timer
+    shell: systemctl start {{ item }}
+    with_items:
+    - watchlog.timer
+    - watchlog.service
+
     tags:
       - start_timer
