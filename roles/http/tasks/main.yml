@@ -18,16 +18,16 @@
 
   - name: http | copy files systemd
     template:
-       src: files/"{{ item }}"
-       dest: /etc/systemd/system/"{{ item }}"
-       with_items:
+       src: files/{{ test }}
+       dest: /etc/systemd/system/{{ test }}
+       test_with_items:
         - httpd-first
         - httpd-second
   - name: http | copy files nginx
     template:
-       src: files/{{ item }}
-       dest: /etc/httpd/conf/{{ item }}
-       with_items:
+       src: files/{{ test1 }}
+       dest: /etc/httpd/conf/{{ test1 }}
+       test1_with_items:
         - first.conf
         - second.conf
   - name: http | start nginx1
